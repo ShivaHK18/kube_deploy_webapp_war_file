@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: webapp
+spec:
+   replicas: 1
+   selector:
+    matchLabels:
+     name: deployment
+   template:
+     metadata:
+       name: shiva
+       labels:
+         name: deployment
+     spec:
+      containers:
+        - name: home
+          image: shivaraja385/kubeweb1: v1.1
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 8090
